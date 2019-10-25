@@ -304,7 +304,7 @@
   cursor: pointer;
 }
 
-@mixin multiline-truncate($lineHeight: 1.4em, $lineCount: 1, $backgroundColor: transparent) {
+@mixin multiline-truncate($lineHeight: 1.25em, $lineCount: 1, $backgroundColor: transparent) {
   position: relative;
   line-height: $lineHeight;
   max-height: $lineCount * $lineHeight;

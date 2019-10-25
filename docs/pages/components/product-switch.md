@@ -78,7 +78,7 @@ Product Switch provides a role based access to all products or LoBs. It shows on
                         <li class="fd-product-switch__item">
                             <div class="fd-product-switch__icon sap-icon--customer"></div>
                             <div class="fd-product-switch__text">
-                                <div class="fd-product-switch__title">Human Capital Management</div>
+                                <div class="fd-product-switch__title">Human Capital Management Human Capital Management</div>
                             </div>
                         </li>
                         <li class="fd-product-switch__item">

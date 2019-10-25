@@ -127,6 +127,32 @@ $block: #{$fd-namespace}-product-switch;
     width: 47rem;
   }
 
+  &__item:hover {
+    background-color: var(--sapList_Hover_Background);
+
+    .#{$block}__title {
+      &::after {
+        background-color: var(--sapList_Hover_Background);
+      }
+    }
+  }
+
+  &__item:active {
+    background-color: var(--sapList_Active_Background);
+
+    .#{$block}__icon,
+    .#{$block}__title,
+    .#{$block}__subtitle {
+      color: var(--sapList_Active_TextColor);
+    }
+
+    .#{$block}__title {
+      &::after {
+        background-color: var(--sapList_Active_Background);
+      }
+    }
+  }
+
   &__item {
     @include fd-reset();
 
@@ -144,20 +170,21 @@ $block: #{$fd-namespace}-product-switch;
     background-color: var(--sapList_Background);
     border-radius: var(--sapElement_BorderCornerRadius);
 
-    &:hover {
-      background-color: var(--sapList_Hover_Background);
-    }
+    // &__item{
+    //   .#{$block}__title{
+    //     &::after {
+    //       background-color: var(--sapList_SelectionBackgroundColor);
+    //     }
+    //   }
+    // }
 
-    &:active {
-      background-color: var(--sapList_Active_Background);
-
-      .#{$block}__icon,
-      .#{$block}__title,
-      .#{$block}__subtitle {
-        color: var(--sapList_Active_TextColor);
-      }
-    }
-
+    // &__item:hover{
+    //   .#{$block}__title{
+    //     &::after {
+    //       background-color: var(--sapList_Hover_SelectionBackground);
+    //     }
+    //   }
+    // }
     &.selected {
       background-color: var(--sapList_SelectionBackgroundColor);
       border: 0.125rem solid;
@@ -238,9 +265,21 @@ $block: #{$fd-namespace}-product-switch;
     line-height: 1.25rem;
     font-size: var(--sapFontHeader6Size);
     color: var(--sapGroup_TitleTextColor);
+    white-space: normal;
+
+    @include multiline-truncate($lineHeight: 1.25em, $lineCount: 2,$backgroundColor:var(--sapTile_Background));
+
+    &::before {
+      left: 135px;
+    }
+
+    &::after {
+      width: 1.5em;
+      left: 10.6em;
+    }
 
     &:not(:last-child) {
-      @include fd-ellipsis();
+      // @include fd-ellipsis();
     }
   }
 
