@@ -90,6 +90,25 @@ $block: #{$fd-namespace}-product-switch;
         outline-width: 0.0625rem;
         outline-color: var(--sapContent_FocusColor);
       }
+
+      .#{$block}__title {
+        &::after,
+        &::before {
+          background-color: var(--sapTile_Background);
+        }
+
+        &::before {
+          left: 24.7em;
+          width: 1em;
+          z-index: 2;
+        }
+
+        &::after {
+          width: 1em;
+          left: 24.7em;
+          z-index: 3;
+        }
+      }
     }
 
     .#{$block}__text {
@@ -113,6 +132,25 @@ $block: #{$fd-namespace}-product-switch;
 
       .#{$block}__text {
         align-items: flex-start;
+
+        .#{$block}__title {
+          &::before {
+            right: 25.8em;
+          }
+
+          &::after {
+            // bottom: -0.23em;
+          }
+        }
+
+        .#{$block}__title:not(:last-child) {
+          @include fd-ellipsis();
+
+          &::after,
+          &::before {
+            display: inline-flex;
+          }
+        }
       }
     }
   }
@@ -126,12 +164,21 @@ $block: #{$fd-namespace}-product-switch;
 
     width: 47rem;
   }
+  // &:hover {
+  //   .#{$block}__title {
+  //     &::after,
+  //     &::before {
+  //       background-color: var(--sapList_Hover_Background);
+  //     }
+  //   }
+  // }
 
   &__item:hover {
     background-color: var(--sapList_Hover_Background);
 
     .#{$block}__title {
-      &::after {
+      &::after,
+      &::before {
         background-color: var(--sapList_Hover_Background);
       }
     }
@@ -147,11 +194,38 @@ $block: #{$fd-namespace}-product-switch;
     }
 
     .#{$block}__title {
-      &::after {
+      &::after,
+      &::before {
         background-color: var(--sapList_Active_Background);
       }
     }
+
+    &:hover {
+      .#{$block}__title {
+        &::after,
+        &::before {
+          background-color: var(--sapList_Active_Background);
+        }
+      }
+    }
   }
+
+  // &:active {
+  //   .#{$block}__title {
+  //     &::after,
+  //     &::before {
+  //       background-color: var(--sapList_Active_Background);
+  //     }
+  //   }
+  //   &:hover {
+  //     .#{$block}__title {
+  //       &::after,
+  //       &::before {
+  //         background-color: var(--sapList_Active_Background);
+  //       }
+  //     }
+  //   }
+  // }
 
   &__item {
     @include fd-reset();
@@ -170,32 +244,54 @@ $block: #{$fd-namespace}-product-switch;
     background-color: var(--sapList_Background);
     border-radius: var(--sapElement_BorderCornerRadius);
 
-    // &__item{
-    //   .#{$block}__title{
-    //     &::after {
-    //       background-color: var(--sapList_SelectionBackgroundColor);
-    //     }
-    //   }
-    // }
+    .#{$block}__title:not(:last-child) {
+      @include fd-ellipsis();
 
-    // &__item:hover{
-    //   .#{$block}__title{
-    //     &::after {
-    //       background-color: var(--sapList_Hover_SelectionBackground);
-    //     }
-    //   }
-    // }
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+
+    .#{$block}__title {
+      &::after,
+      &::before {
+        background-color: var(--sapTile_Background);
+      }
+    }
+
     &.selected {
       background-color: var(--sapList_SelectionBackgroundColor);
       border: 0.125rem solid;
       border-color: var(--sapList_SelectionBorderColor);
 
+      .#{$block}__title {
+        &::after,
+        &::before {
+          background-color: var(--sapList_SelectionBackgroundColor);
+        }
+      }
+
       &:hover {
         background-color: var(--sapList_Hover_SelectionBackground);
+
+        .#{$block}__title {
+          &::after,
+          &::before {
+            background-color: var(--sapList_Hover_SelectionBackground);
+          }
+        }
       }
 
       &:active {
         background-color: var(--sapList_Active_Background);
+
+        .#{$block}__title {
+          &::after,
+          &::before {
+            background-color: var(--sapList_Active_Background);
+          }
+        }
       }
     }
 
@@ -266,20 +362,20 @@ $block: #{$fd-namespace}-product-switch;
     font-size: var(--sapFontHeader6Size);
     color: var(--sapGroup_TitleTextColor);
     white-space: normal;
+    z-index: 1;
 
-    @include multiline-truncate($lineHeight: 1.25em, $lineCount: 2,$backgroundColor:var(--sapTile_Background));
+    @include multiline-truncate($lineHeight: 1.25em, $lineCount: 2);
 
     &::before {
-      left: 135px;
+      left: 10.9em;
+      width: 1em;
+      z-index: 2;
     }
 
     &::after {
-      width: 1.5em;
-      left: 10.6em;
-    }
-
-    &:not(:last-child) {
-      // @include fd-ellipsis();
+      width: 1em;
+      left: 10.9em;
+      z-index: 3;
     }
   }
 
